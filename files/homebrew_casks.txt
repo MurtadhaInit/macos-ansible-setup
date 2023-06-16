@@ -1,0 +1,13 @@
+wezterm
+visual-studio-code
+iterm2
+warp
+docker
+iina
+gitkraken
+jetbrains-toolbox
+notion
+obsidian
+signal
+utm
+zotero
