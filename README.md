@@ -1,5 +1,6 @@
-# macos-ansible-setup
+# MacOS Setup with Ansible
 
-Ansible role to fully setup my main Mac machine
+An Ansible role to fully automate the setup of my main Mac machine.
+It's incorporated as a Git submodule into my [dotfiles](https://github.com/MurtadhaInit/dotfiles) repository.
 
 ![](./logo.png)
