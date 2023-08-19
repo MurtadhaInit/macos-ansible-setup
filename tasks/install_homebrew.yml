@@ -18,8 +18,9 @@
   register: brew_installed
 
 - name: Disable Homebrew analytics
-  # execute only once when Homebrew is first installed
   # when: brew_installed.rc is defined and brew_installed.rc == 0 or brew_exists.rc == 0
-  changed_when: analytics_off.rc is defined
+  vars:
+    analytics_off: "{{ env.HOMEBREW_NO_ANALYTICS }}"
+  when: analytics_off != 1
+  changed_when: analytics_off != 1
   ansible.builtin.command: brew analytics off
-  register: analytics_off

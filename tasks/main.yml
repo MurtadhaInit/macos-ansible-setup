@@ -8,6 +8,7 @@
   ansible.builtin.include_tasks: setup_zsh.yml
 
 - name: Install essential apps and packages
+  tags: essential_apps
   ansible.builtin.include_tasks: essentials.yml
 
   # This task requires Ansible Vault password
@@ -41,6 +42,7 @@
 - name: Install latest version of Git
   tags: homebrew
   community.general.homebrew:
+    update_homebrew: true
     name: git
     state: present
 
@@ -48,7 +50,10 @@
   tags: personal_repos
   ansible.builtin.include_tasks: git_repositories.yml
   with_items:
-    - { repo_URL: https://github.com/MurtadhaInit/scripts.git, repo_dest: "{{ ansible_env.HOME }}/Scripts" }
+    - {
+        repo_URL: https://github.com/MurtadhaInit/scripts.git,
+        repo_dest: "{{ ansible_env.HOME }}/Scripts",
+      }
 
 - name: Setup tmux
   tags: tmux
@@ -73,7 +78,6 @@
 - name: Install all other apps (including App Store ones) from Brewfile
   tags: all_apps
   ansible.builtin.include_tasks: all_apps.yml
-
 # TODO: copy all apps' settings (.plist files)
 # Those mostly located in ~/Library/Preferences
 
