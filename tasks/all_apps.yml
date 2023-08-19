@@ -6,6 +6,7 @@
 - name: Install mas (for App Store apps)
   tags: homebrew
   community.general.homebrew:
+    update_homebrew: true
     name: mas
     state: present
 

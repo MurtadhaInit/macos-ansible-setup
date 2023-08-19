@@ -1,6 +1,7 @@
 - name: Install GNU Stow
   tags: homebrew
   community.general.homebrew:
+    update_homebrew: true
     name: stow
     state: present
 

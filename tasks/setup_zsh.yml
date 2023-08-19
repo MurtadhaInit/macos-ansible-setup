@@ -1,6 +1,7 @@
 - name: Install ZSH with Homebrew
   tags: homebrew
   community.general.homebrew:
+    update_homebrew: true
     name: zsh
     state: present
 

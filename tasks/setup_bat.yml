@@ -1,6 +1,7 @@
 - name: Install bat
   tags: homebrew
   community.general.homebrew:
+    update_homebrew: true
     name: bat
     state: present
 
@@ -23,7 +24,7 @@
     - name: Find all .tmTheme files
       ansible.builtin.find:
         path: "{{ ansible_env.HOME }}/.config/bat/catppuccin"
-        pattern: '*.tmTheme'
+        pattern: "*.tmTheme"
       register: bat_theme_files
 
     - name: Copy over theme files

@@ -15,6 +15,7 @@
     # TODO: exporting the room directory doesn't seem to help...
     PYENV_ROOT: ~/.local/share/pyenv
   community.general.homebrew:
+    update_homebrew: true
     name: pyenv
     state: present
 
@@ -45,6 +46,7 @@
 - name: Install pipx
   tags: homebrew
   community.general.homebrew:
+    update_homebrew: true
     name: pipx
     state: present
 
