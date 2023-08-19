@@ -1,4 +1,12 @@
 # NOTE: this needs to come after the tasks that installs Git
+
+- name: Install tmux
+  tags: homebrew
+  community.general.homebrew:
+    update_homebrew: true
+    name: tmux
+    state: present
+
 - name: Check if tpm directory exists
   ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/.config/tmux/plugins/tpm"

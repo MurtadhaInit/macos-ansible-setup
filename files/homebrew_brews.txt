@@ -8,7 +8,6 @@ exa
 fzf
 ncdu
 tldr
-tmux
 zoxide
 zsh-autosuggestions
 zsh-syntax-highlighting
