@@ -26,11 +26,12 @@
 - name: Change the default location of ZSH rc files
   ansible.builtin.include_tasks: switch_zsh_dir.yml
 
-# TODO: fix the root directory problem with pyenv and volta
-# - name: Setup Node
-#   tags: node
-#   ansible.builtin.include_tasks: setup_node.yml
+# TODO: test the installation of node with fnm
+- name: Setup Node
+  tags: node
+  ansible.builtin.include_tasks: setup_node.yml
 
+# TODO: fix the root directory problem with pyenv
 # - name: Setup Python and pipx apps
 #   tags: python
 #   ansible.builtin.include_tasks: setup_python.yml
@@ -74,7 +75,7 @@
 
 # sign in to app store before the next task
 
-  # NOTE: this task takes a very long time when many apps need to be installed.
+# NOTE: this task takes a very long time when many apps need to be installed.
 - name: Install all other apps (including App Store ones) from Brewfile
   tags: all_apps
   ansible.builtin.include_tasks: all_apps.yml

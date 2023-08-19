@@ -1,21 +1,24 @@
 # TODO: test if the environment variable is taking effect or it's the zsh rc files the second time (after dotfiles have been symlinked)
-- name: Create the Volta home directory
-  ansible.builtin.file:
-    path: $HOME/.local/share/volta
-    state: directory
-    mode: "0755"
 
-- name: Install Volta
+- name: Install fnm
   tags: homebrew
-  # TODO: exporting the environment varialbe doesn't seem to help...
   environment:
-    VOLTA_HOME: ~/.local/share/volta
+    FNM_DIR: $HOME/.local/share/fnm
   community.general.homebrew:
-    name: volta
+    update_homebrew: true
+    name: fnm
     state: present
 
-- name: Always install the latest LTS versions of Node and npm
+- name: Install the latest LTS versions of Node and npm
   # assume this task will usually result in a change
   changed_when: true
+  environment:
+    FNM_DIR: $HOME/.local/share/fnm
   ansible.builtin.shell:
-    cmd: volta install node && volta install npm
+    cmd: fnm install --latest && fnm install --lts
+
+- name: Install npm global packages
+  # assume this task will usually result in a change
+  changed_when: true
+  ansible.builtin.command: npm install --global esbuild
+  # required dependency for "import cost" vscode extension
