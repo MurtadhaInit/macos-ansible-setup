@@ -20,5 +20,5 @@
 - name: Install npm global packages
   # assume this task will usually result in a change
   changed_when: true
-  ansible.builtin.command: npm install --global esbuild
+  ansible.builtin.command: npm install --global esbuild prettier
   # required dependency for "import cost" vscode extension
