@@ -63,10 +63,6 @@
 - name: Setup bat
   ansible.builtin.include_tasks: setup_bat.yml
 
-  # TODO: uncomment and test this
-# - name: Setup launchd agents (MacOS running services)
-#   ansible.builtin.include_tasks: launchd_agents.yml
-
 # TODO: change system settings
 # Check out these files:
 # 1. https://github.com/mathiasbynens/dotfiles/blob/main/.macos
