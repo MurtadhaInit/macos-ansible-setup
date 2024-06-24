@@ -63,6 +63,9 @@
 - name: Setup bat
   ansible.builtin.include_tasks: setup_bat.yml
 
+- name: Setup Warp
+  ansible.builtin.include_tasks: setup_warp.yml
+
 # TODO: change system settings
 # Check out these files:
 # 1. https://github.com/mathiasbynens/dotfiles/blob/main/.macos
