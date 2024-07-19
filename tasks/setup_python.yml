@@ -50,6 +50,11 @@
     name: pipx
     state: present
 
+- name: Install argcomplete to allow for tab completion in pipx
+  ansible.builtin.command:
+    cmd: "pipx install argcomplete"
+  changed_when: true
+
 - name: Install Python applications with pipx
   ansible.builtin.command:
     cmd: "pipx install {{ item }}"
